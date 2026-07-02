@@ -3,6 +3,9 @@ def load(file_path = "../data/dictionary1.txt"):
     all_lines = f.read()
   all_lines_list = all_lines.strip().split("\n")
   res = []
+  dic = {}
   for all_lines in all_lines_list:
-    res.append(all_lines.split("\t"))
-  return res
+    res = all_lines.split("\t")
+    if not(res[0] in dic):
+      dic[res[0]] = res[1]
+  return dic

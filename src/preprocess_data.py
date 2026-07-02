@@ -22,6 +22,6 @@ if labeled == "Y":
 else:
     sentence_arrays = input_loader.load_raw_data(data_path)
     data_preprocessor = DataPreprocessor(sentence_arrays, dictionary)
-    data_preprocessor.preprocess_data()
+    data_preprocessor.preprocess_data() 
 
 data_preprocessor.dump(preprocessed_data_path)

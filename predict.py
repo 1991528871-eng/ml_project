@@ -4,7 +4,7 @@ import src.my_library.load_input_data as input_loader
 
 project_root_path = os.path.dirname(os.path.abspath(__file__))
 model_path = os.path.join(project_root_path, "models", "best_model.pkl")
-preprocessed_data_path = os.path.join(project_root_path, "data", "data_preprocessed.pkl")
+preprocessed_data_path = os.path.join(project_root_path, "data", "data_processed.pkl")
 data_path = os.path.join(project_root_path, "data", "data.txt")
 
 with open(model_path, "rb") as f:

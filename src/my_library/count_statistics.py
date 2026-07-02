@@ -9,13 +9,13 @@ def count_and_vectorize(dic, sent):
     for token in tokenizer.tokenize(sent):
         words.append(token.base_form)
 
-    for i in range(len(dic)):        
-        if dic[i][0] in words:
-            if dic[i][1] == "n":
+    for i in words:        
+        if i in dic:
+            if dic[i] == "n":
                 num_negative += 1
-            elif dic[i][1] == "p":
+            elif dic[i] == "p":
                 num_positive += 1
-            elif dic[i][1] == "e":
+            elif dic[i] == "e":
                 num_neutral += 1
     num_total = num_negative + num_positive + num_neutral 
     
