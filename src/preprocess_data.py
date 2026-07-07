@@ -33,3 +33,7 @@ data_preprocessor.dump(preprocessed_data_path)
 
 end_time = time.perf_counter()
 print("処理時間: ", "{:.2f}".format((end_time - start_time)/60))
+
+# data.txt & dictionary_1: 0.10 min
+# train.txt & dictionary_1: 20.94 min
+# validation.txt & dictionary_1: 1.45 min 
