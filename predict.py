@@ -1,9 +1,9 @@
 # 園田夏菜・J4260438  運用フェーズ
 # models/best_model.pkl を読み込み，
 # 前処理された data/data_preprocessed.pkl を用いて識別を行うように．
- import os
- import pickle
- import src.my_library.load_input_data as input_loader
+import os
+import pickle
+import src.my_library.load_input_data as input_loader
 
 project_root_path = os.path.dirname(os.path.abspath(__file__))
 model_path = os.path.join(project_root_path, "models", "best_model.pkl")
