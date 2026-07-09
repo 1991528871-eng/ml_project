@@ -16,7 +16,7 @@ def find_best_model(models_paths, data_path):
     v = validator.Validator()
     v.load_data(data_path)
 
-    best_accuracy = 0
+    best_score = 0
     best_model_file_path = None
 
     for models_path in models_paths:
@@ -24,21 +24,27 @@ def find_best_model(models_paths, data_path):
             model_file_path = os.path.join(models_path, model_file)
             v.load_model(model_file_path)
             accuracy, precision, recall = v.evaluate_model()
+            if precision + recall > 0:
+                f1 = 2 * precision * recall / (precision + recall)
+            else:
+                f1 = 0
+            score = (2 * accuracy + f1) / 3
             print(f"Evaluating {model_file_path}:")
             print(f"Accuracy: {accuracy}")
             print(f"Precision: {precision}")
             print(f"Recall: {recall}")
-
-            if accuracy > best_accuracy:
-                best_accuracy = accuracy
+            print(f"F1: {f1}")
+            print(f"Score: {score}")
+            if score > best_score:
+                best_score = score
                 best_model_file_path = model_file_path
 
     if best_model_file_path is not None:
         best_model_file_path_dest = os.path.join(os.path.dirname(models_paths[0].rstrip(os.sep)), 'best_model.pkl')
         v.load_model(best_model_file_path)
-        with open(best_model_dest, 'wb') as f:
+        with open(best_model_file_path_dest, 'wb') as f:
             pickle.dump(v.model, f)
-        print(f"The best model is saved as 'best_model.pkl' with accuracy: {best_accuracy}")
+        print(f"The best model is saved as 'best_model.pkl' with accuracy: {best_score}")
 
 
 data_path = input("Enter the path for the preprocessed validation data:")
