@@ -28,7 +28,7 @@ def find_best_model(models_paths, data_path):
                 f1 = 2 * precision * recall / (precision + recall)
             else:
                 f1 = 0
-            score = (2 * accuracy + f1) / 3
+            score = (3 * accuracy + f1) / 4
             print(f"Evaluating {model_file_path}:")
             print(f"Accuracy: {accuracy}")
             print(f"Precision: {precision}")
@@ -44,7 +44,7 @@ def find_best_model(models_paths, data_path):
         v.load_model(best_model_file_path)
         with open(best_model_file_path_dest, 'wb') as f:
             pickle.dump(v.model, f)
-        print(f"The best model is saved as 'best_model.pkl' with accuracy: {best_score}")
+        print(f"The best model is saved as 'best_model.pkl' with score: {best_score}")
 
 
 data_path = input("Enter the path for the preprocessed validation data:")
