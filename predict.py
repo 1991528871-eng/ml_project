@@ -7,7 +7,7 @@ import src.my_library.load_input_data as input_loader
 
 project_root_path = os.path.dirname(os.path.abspath(__file__))
 model_path = os.path.join(project_root_path, "models", "best_model.pkl")
-preprocessed_data_path = os.path.join(project_root_path, "data", "data_processed.pkl")
+preprocessed_data_path = os.path.join(project_root_path, "data", "data_preprocessed.pkl")
 data_path = os.path.join(project_root_path, "data", "data.txt")
 
 with open(model_path, "rb") as f:
@@ -22,11 +22,11 @@ predictions = predictor.predict(preprocessed_data)
 for i in range(len(predictions)):
     print(sentence_array[i], predictions[i])
 
-file_path = ../data/consequence
+file_path = os.path.join(project_root_path, "data", "consequence.txt")
 with open(file_path, "w") as f:
     string = ""
     for i in range(len(predictions)):
-        string = string + str(sentence_array[i]) + str(predicions[i]) + "\n"
+        string = string + str(sentence_array[i]) + str(predictions[i]) + "\n"
     #stirng = string + str(sentence_array)
     #pickle.dump(, f)
     print(string, file = f)

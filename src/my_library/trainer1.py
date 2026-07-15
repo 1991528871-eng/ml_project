@@ -1,4 +1,5 @@
 import pickle
+import sklearn.svm as SVM
 class Trainer:
     def __init__(self):
         self.model=None #モデルを格納するインスタンス変数を初期化

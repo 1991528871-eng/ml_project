@@ -21,6 +21,7 @@ ml_project/
 |    |--- validation_preprocessed.pkl   # ベクトル化済みの検証データ（ラベル付き）
 |    |--- data.txt                      # 予測用の生データ
 |    |--- data_preprocessed.pkl         # ベクトル化済みの予測データ（ラベル無し）
+|    |--- consequence.txt               # 予測した結果
 |--- src/
 |    |--- my_library/
 |    |    |--- load_input_data.py       # データを読み込むモジュール
